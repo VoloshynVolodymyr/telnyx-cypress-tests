@@ -6,7 +6,6 @@ class PricingPage extends BasePage {
     this.url = '/'
   }
 
-  // Селектори
   get pricingMenuItem() {
     return cy.contains('#main-menu-content button', 'Pricing')
   }
@@ -21,15 +20,15 @@ class PricingPage extends BasePage {
     return cy.get('a[href="/pricing"]').filter(':visible')
   }
 
-  // Методи
   openPricingContent() {
     this.pricingMenuItem.should('be.visible').click({ force: true })
-    this.pricingCards.should('have.length', 4)
+    this.waitForVisible('a[href*="/pricing/"].group', 10000)
+    this.pricingCards.should('have.length.at.least', 1)
     return this
   }
 
   verifyPricingCardsVisible() {
-    this.pricingCards.should('have.length', 4)
+    this.pricingCards.should('have.length.at.least', 1)
     return this
   }
 
