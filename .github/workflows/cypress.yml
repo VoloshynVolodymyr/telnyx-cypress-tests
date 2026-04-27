@@ -34,6 +34,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: ${{ matrix.browser }}
+          config-file: cypress.config.ci.js
           headed: false
           record: true
           group: 'Telnyx Smoke Tests - ${{ matrix.browser }}'
