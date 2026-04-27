@@ -2,7 +2,6 @@ const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   projectId: '84t3bz',
-  allowCypressEnv: false,
   e2e: {
     baseUrl: process.env.CYPRESS_BASE_URL || 'https://telnyx.com',
     specPattern: 'cypress/e2e/**/*.cy.js',
@@ -11,9 +10,7 @@ module.exports = defineConfig({
     defaultCommandTimeout: 10000,
     video: false,
     screenshotOnRunFailure: true,
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    }
+    setupNodeEvents(on, config) {}
   },
   env: {
     BASE_URL: 'https://telnyx.com'
