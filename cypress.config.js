@@ -2,6 +2,7 @@ const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   projectId: '84t3bz',
+  chromeWebSecurity: false,
   e2e: {
     baseUrl: process.env.CYPRESS_BASE_URL || 'https://telnyx.com',
     specPattern: 'cypress/e2e/**/*.cy.js',

@@ -17,9 +17,8 @@ const contactPage = new ContactPage()
 
 describe('Telnyx.com Test Suite', () => {
   beforeEach(() => {
-    cy.viewport(1280, 720)
     homePage.visitHomePage()
-    cy.wait(500)
+    homePage.waitForPageLoad()
   })
 
   describe('TC-01: Homepage loads correctly', () => {
@@ -57,6 +56,7 @@ describe('Telnyx.com Test Suite', () => {
 
   describe('TC-04: Pricing page displays product cards and Check "All pricing button"', () => {
     it('Should display 4 pricing cards and redirect to /pricing via "View all pricing" button', () => {
+      cy.wait(500)
       pricingPage.openPricingContent()
       pricingPage.verifyPricingCardsVisible()
       pricingPage.verifyViewAllPricingButtonVisible()
@@ -74,7 +74,6 @@ describe('Telnyx.com Test Suite', () => {
     it('Should expand and collapse accordion on click', () => {
       voiceAIPage.verifyUrl()
       voiceAIPage.scrollToAccordion()
-      cy.wait(500)
 
       voiceAIPage.verifyFirstAccordionState('open')
 
@@ -88,8 +87,8 @@ describe('Telnyx.com Test Suite', () => {
 
   describe('TC-06: Resource center search – relevant query returns results', () => {
     it('Should search for "Flow" and display results', () => {
-      homePage.clickResourceMenuItem()
       cy.wait(500)
+      homePage.clickResourceMenuItem()
       homePage.clickResourceCenter()
       resourceCenterPage.verifyUrl()
       resourceCenterPage.searchFor('Flow')
@@ -99,8 +98,8 @@ describe('Telnyx.com Test Suite', () => {
 
   describe('TC-07: Resource center search – irrelevant query shows no results message', () => {
     it('Should search for "Nonsense" and show no results message', () => {
-      homePage.clickResourceMenuItem()
       cy.wait(500)
+      homePage.clickResourceMenuItem()
       homePage.clickResourceCenter()
       resourceCenterPage.verifyUrl()
       resourceCenterPage.searchFor('Nonsense')
@@ -112,7 +111,6 @@ describe('Telnyx.com Test Suite', () => {
   describe('TC-08: Contact Form - Validation for Empty Field', () => {
     it('Should display error message when first field (Reason for Contact) is left empty', () => {
       homePage.clickContactUsLink()
-      cy.wait(500)
       contactPage.leaveFirstFieldEmpty()
       contactPage.submitForm()
       contactPage.verifyErrorMessageDisplayed()

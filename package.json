@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --browser chrome",
     "cy:run:chrome": "cypress run --browser chrome",
-    "cy:run:edge": "cypress run --browser edge",
-    "cy:run:headless": "cypress run --headless",
-    "test": "cypress run --record"
+    "cy:run:headless": "cypress run --browser chrome --headless",
+    "test": "cypress run --record --browser chrome"
   },
   "keywords": [
     "cypress",

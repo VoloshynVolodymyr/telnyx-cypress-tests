@@ -44,10 +44,6 @@ class HomePage extends BasePage {
     return cy.get('#main-menu')
   }
 
-  get textToSpeechTab() {
-    return cy.get('button[role="tab"]').contains('Text to Speech')
-  }
-
   get textArea() {
     return cy.get('textarea[placeholder*="Enter text to convert to speech"]')
   }
@@ -58,10 +54,6 @@ class HomePage extends BasePage {
 
   get textToSpeechTab() {
     return cy.get('button[role="tab"]').contains('Text to Speech')
-  }
-
-  get textArea() {
-    return cy.get('textarea[placeholder*="Enter text"]')
   }
 
   get textToSpeechContainer() {
@@ -169,12 +161,6 @@ class HomePage extends BasePage {
     return this
   }
 
-  scrollToTextToSpeech() {
-    this.textToSpeechTab.scrollIntoView()
-    cy.wait(500)
-    return this
-  }
-
   clearTextArea() {
     this.textArea.should('exist').clear({ force: true })
     return this
@@ -192,6 +178,11 @@ class HomePage extends BasePage {
 
   clickContactUsLink() {
     this.contactUsLink.should('be.visible').click({ force: true })
+    return this
+  }
+
+  waitForResourceDropdown() {
+    this.resourceCenterLink.should('be.visible')
     return this
   }
 }

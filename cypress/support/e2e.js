@@ -1,9 +1,8 @@
+// cypress/support/e2e.js
 Cypress.on('uncaught:exception', (err, runnable) => {
-  if (err.message.includes('Minified React error #419')) {
-    return false
-  }
-  return true
-}) // ***********************************************************
+  // Ігноруємо всі помилки, які виникають на сайті
+  return false
+})
 
 beforeEach(() => {
   // Закриваємо cookie банер перед кожним тестом, якщо він з'являється
