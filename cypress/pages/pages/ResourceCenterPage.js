@@ -1,6 +1,6 @@
-import BasePage from '../base/BasePage'
+import { BasePage } from '../base/BasePage'
 
-class ResourceCenterPage extends BasePage {
+class ResourceCenterPageClass extends BasePage {
   constructor() {
     super()
     this.url = '/resources'
@@ -47,4 +47,4 @@ class ResourceCenterPage extends BasePage {
   }
 }
 
-export default ResourceCenterPage
+export const resourceCenterPage = new ResourceCenterPageClass()

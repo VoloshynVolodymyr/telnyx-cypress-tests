@@ -1,6 +1,6 @@
-import BasePage from '../base/BasePage'
+import { BasePage } from '../base/BasePage'
 
-class VoiceAIPage extends BasePage {
+class VoiceAIPageClass extends BasePage {
   constructor() {
     super()
     this.expectedUrl = 'https://telnyx.com/products/voice-ai-agents'
@@ -44,4 +44,4 @@ class VoiceAIPage extends BasePage {
   }
 }
 
-export default VoiceAIPage
+export const voiceAIPage = new VoiceAIPageClass()

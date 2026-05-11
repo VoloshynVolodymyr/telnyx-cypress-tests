@@ -1,6 +1,6 @@
-import BasePage from '../base/BasePage'
+import { BasePage } from '../base/BasePage'
 
-class PricingPage extends BasePage {
+class PricingPageClass extends BasePage {
   constructor() {
     super()
     this.url = '/'
@@ -21,7 +21,7 @@ class PricingPage extends BasePage {
   }
 
   openPricingContent() {
-    this.pricingMenuItem.should('be.visible').click({ force: true })
+    this.pricingMenuItem.should('be.visible').should('be.enabled').click()
     this.waitForVisible('a[href*="/pricing/"].group', 10000)
     this.pricingCards.should('have.length.at.least', 1)
     return this
@@ -48,4 +48,4 @@ class PricingPage extends BasePage {
   }
 }
 
-export default PricingPage
+export const pricingPage = new PricingPageClass()

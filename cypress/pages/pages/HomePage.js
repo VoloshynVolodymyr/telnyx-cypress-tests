@@ -1,6 +1,6 @@
-import BasePage from '../base/BasePage'
+import { BasePage } from '../base/BasePage'
 
-class HomePage extends BasePage {
+class HomePageClass extends BasePage {
   constructor() {
     super()
     this.url = ''
@@ -187,4 +187,4 @@ class HomePage extends BasePage {
   }
 }
 
-export default HomePage
+export const homePage = new HomePageClass()

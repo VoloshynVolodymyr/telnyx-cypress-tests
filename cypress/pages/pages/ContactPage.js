@@ -1,6 +1,6 @@
-import BasePage from '../base/BasePage'
+import { BasePage } from '../base/BasePage'
 
-class ContactPage extends BasePage {
+class ContactPageClass extends BasePage {
   constructor() {
     super()
     this.url = '/contact-us'
@@ -75,4 +75,4 @@ class ContactPage extends BasePage {
   }
 }
 
-export default ContactPage
+export const contactPage = new ContactPageClass()

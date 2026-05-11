@@ -33,4 +33,6 @@ class BasePage {
   }
 }
 
-export default BasePage
+export { BasePage }
+
+export const basePage = new BasePage()

@@ -3,17 +3,11 @@
  * Site: https://telnyx.com
  */
 
-import HomePage from '../pages/pages/HomePage'
-import PricingPage from '../pages/pages/PricingPage'
-import VoiceAIPage from '../pages/pages/VoiceAIPage'
-import ResourceCenterPage from '../pages/pages/ResourceCenterPage'
-import ContactPage from '../pages/pages/ContactPage'
-
-const homePage = new HomePage()
-const pricingPage = new PricingPage()
-const voiceAIPage = new VoiceAIPage()
-const resourceCenterPage = new ResourceCenterPage()
-const contactPage = new ContactPage()
+import { homePage } from '../pages/pages/HomePage'
+import { pricingPage } from '../pages/pages/PricingPage'
+import { voiceAIPage } from '../pages/pages/VoiceAIPage'
+import { resourceCenterPage } from '../pages/pages/ResourceCenterPage'
+import { contactPage } from '../pages/pages/ContactPage'
 
 describe('Telnyx.com Test Suite', () => {
   beforeEach(() => {
@@ -56,7 +50,6 @@ describe('Telnyx.com Test Suite', () => {
 
   describe('TC-04: Pricing page displays product cards and Check "All pricing button"', () => {
     it('Should display 4 pricing cards and redirect to /pricing via "View all pricing" button', () => {
-      cy.wait(500)
       pricingPage.openPricingContent()
       pricingPage.verifyPricingCardsVisible()
       pricingPage.verifyViewAllPricingButtonVisible()
@@ -87,7 +80,6 @@ describe('Telnyx.com Test Suite', () => {
 
   describe('TC-06: Resource center search – relevant query returns results', () => {
     it('Should search for "Flow" and display results', () => {
-      cy.wait(500)
       homePage.clickResourceMenuItem()
       homePage.clickResourceCenter()
       resourceCenterPage.verifyUrl()
@@ -98,7 +90,6 @@ describe('Telnyx.com Test Suite', () => {
 
   describe('TC-07: Resource center search – irrelevant query shows no results message', () => {
     it('Should search for "Nonsense" and show no results message', () => {
-      cy.wait(500)
       homePage.clickResourceMenuItem()
       homePage.clickResourceCenter()
       resourceCenterPage.verifyUrl()
